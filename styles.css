@@ -1,0 +1,169 @@
+:root {
+  /* colors */
+  --col-text: #434346;
+  --col-light-blue: #bac2c9;
+  --col-dark-blue: #8290a0;
+  --col-light-bege: #c49375;
+  --col-dark-bege: #928778;
+  /* fonts */
+  --f-main: 'Happy Monkey', cursive;
+}
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body {
+  min-height: 100vh;
+  box-sizing: border-box;
+  text-rendering: optimizeSpeed;
+  color: var(--col-text);
+  background: linear-gradient(
+    var(--col-light-blue),
+    var(--col-dark-blue),
+    var(--col-light-bege)
+  );
+  font-family: var(--f-main);
+  font-size: 1.5rem;
+}
+img {
+  display: block;
+  width: 100%;
+}
+/*  */
+h1,
+h2,
+h3,
+h4 {
+  text-shadow: 0 0 1px var(--col-text);
+  text-align: center;
+}
+
+.container {
+  padding: 5rem;
+}
+#header,
+#gift-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+#avatar {
+  width: 25rem;
+  border: 2px solid var(--col-dark-blue);
+  box-shadow: 0 0 1rem var(--col-dark-blue);
+  border-radius: 50%;
+  margin: 3rem auto;
+}
+#bd-age,
+#bd-date {
+  margin-bottom: 2rem;
+  background: var(--col-dark-blue);
+  border-radius: 0.8rem;
+  box-shadow: 0 0 0.5rem var(--col-dark-blue);
+  border: 1px solid var(--col-light-blue);
+}
+#bd-age {
+  padding: 0.9rem 2rem;
+}
+#bd-date {
+  padding: 0.8rem 1.6rem;
+  letter-spacing: 2px;
+}
+/* SECTION: gifts */
+.gift-title {
+  margin-bottom: 2rem;
+}
+.gift-hint {
+  margin-bottom: 3rem;
+}
+.gift-img {
+  width: 40rem;
+  height: 40rem;
+  border-radius: 1rem;
+  border: 1px solid var(--col-dark-bege);
+  box-shadow: 0 0 1.5rem var(--col-light-bege);
+  background-size: cover;
+}
+/*  */
+#happy {
+  background-image: url(images/gift1.jpg);
+}
+#happy:hover {
+  background-image: url(images/happy.gif);
+}
+/*  */
+#excited {
+  background-image: url(images/gift2.jpg);
+}
+#excited:hover {
+  background-image: url(images/excited.gif);
+}
+/*  */
+#genius {
+  background-image: url(images/gift4.jpeg);
+}
+#genius:hover {
+  background-image: url(images/genius.gif);
+}
+/*  */
+#spider:hover {
+  background-image: url(images/spider.gif);
+}
+#spider {
+  background-image: url(images/gift5.jpg);
+}
+/*  */
+#cake {
+  background-image: url(images/gift-box-gif.gif);
+}
+#cake:hover {
+  background-image: url(images/cake.gif);
+}
+/* Confetti on hover */
+.hoverme {
+  width: 240px;
+  text-align: center;
+  padding: 10px 0;
+  cursor: pointer;
+  position: relative;
+}
+.hoverme h2 {
+  color: #fff;
+  font-size: 1.5em;
+}
+.hoverme i {
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: 0;
+  width: 5px;
+  height: 10px;
+  background: red;
+  opacity: 0;
+}
+.hoverme:hover {
+  @for $i from 1 through 50 {
+    i:nth-of-type(#{$i}) {
+      transform: translate3d(random(190) - 100 + px, random(200) - 100 + px, 0)
+        rotate(random(360) + deg);
+      background: hsla(random(360), 100%, 50%, 1);
+      animation: bang 700ms ease-out forwards;
+      opacity: 0;
+    }
+  }
+}
+@keyframes bang {
+  from {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
